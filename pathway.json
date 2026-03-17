@@ -1,0 +1,1214 @@
+{
+  "pathway": [
+    {
+      "list":[
+        {
+          "eng_name": "Seer",
+          "vi_name": "Thầy Bói",
+          "index": 9
+        },
+        {
+          "eng_name": "Clown",
+          "vi_name": "Tên Hề",
+          "index": 8
+        },
+        {
+          "eng_name": "Magician",
+          "vi_name": "Nhà Ảo Thuật",
+          "index": 7
+        },
+        {
+          "eng_name": "Faceless",
+          "vi_name": "Kẻ Vô Diện",
+          "index": 6
+        },
+        {
+          "eng_name": "Marionettist",
+          "vi_name": "Kẻ Điều Khiển Rối",
+          "index": 5
+        },
+        {
+          "eng_name": "Bizarro Sorcerer",
+          "vi_name": "Pháp Sư Quái Dị",
+          "index": 4
+        },
+        {
+          "eng_name": "Scholar of Yore",
+          "vi_name": "Học Giả Cổ Đại",
+          "index": 3
+        },
+        {
+          "eng_name": "Miracle Invoker",
+          "vi_name": "Kẻ Tạo Phép Màu",
+          "index": 2
+        },
+        {
+          "eng_name": "Attendant of Mysteries",
+          "vi_name": "Người Hầu Của Bí Ẩn",
+          "index": 1
+        },
+        {
+          "eng_name": "Fool",
+          "vi_name": "Kẻ Khờ",
+          "index": 0
+        }
+      ],
+      "pathway_name": "Fool (Kẻ Khờ)"
+    },
+    {
+      "list":[
+        {
+          "eng_name": "Apprentice",
+          "vi_name": "Người Học Việc",
+          "index": 9
+        },
+        {
+          "eng_name": "Trickmaster",
+          "vi_name": "Bậc Thầy Lừa Gạt",
+          "index": 8
+        },
+        {
+          "eng_name": "Astrologer",
+          "vi_name": "Nhà Chiêm Tinh",
+          "index": 7
+        },
+        {
+          "eng_name": "Scribe",
+          "vi_name": "Người Ghi Chép",
+          "index": 6
+        },
+        {
+          "eng_name": "Traveler",
+          "vi_name": "Người Du Hành",
+          "index": 5
+        },
+        {
+          "eng_name": "Secrets Sorcerer",
+          "vi_name": "Pháp Sư Bí Thuật",
+          "index": 4
+        },
+        {
+          "eng_name": "Wanderer",
+          "vi_name": "Kẻ Lang Thang",
+          "index": 3
+        },
+        {
+          "eng_name": "Planeswalker",
+          "vi_name": "Lữ Khách Không Gian",
+          "index": 2
+        },
+        {
+          "eng_name": "Key of Stars",
+          "vi_name": "Chìa Khóa Vì Sao",
+          "index": 1
+        },
+        {
+          "eng_name": "Door",
+          "vi_name": "Cánh Cửa",
+          "index": 0
+        }
+      ],
+      "pathway_name": "Door (Cánh Cửa)"
+    },
+    {
+      "list":[
+        {
+          "eng_name": "Marauder",
+          "vi_name": "Kẻ Đạo Tặc",
+          "index": 9
+        },
+        {
+          "eng_name": "Swindler",
+          "vi_name": "Kẻ Lừa Đảo",
+          "index": 8
+        },
+        {
+          "eng_name": "Cryptologist",
+          "vi_name": "Chuyên Gia Giải Mã",
+          "index": 7
+        },
+        {
+          "eng_name": "Prometheus / Fire Stealer",
+          "vi_name": "Kẻ Trộm Lửa",
+          "index": 6
+        },
+        {
+          "eng_name": "Dream Stealer",
+          "vi_name": "Kẻ Trộm Giấc Mơ",
+          "index": 5
+        },
+        {
+          "eng_name": "Parasite",
+          "vi_name": "Kẻ Ký Sinh",
+          "index": 4
+        },
+        {
+          "eng_name": "Mentor of Deceit",
+          "vi_name": "Bậc Thầy Dối Trá",
+          "index": 3
+        },
+        {
+          "eng_name": "Trojan Horse of Destiny",
+          "vi_name": "Ngựa Gỗ Vận Mệnh",
+          "index": 2
+        },
+        {
+          "eng_name": "Worm of Time",
+          "vi_name": "Sâu Thời Gian",
+          "index": 1
+        },
+        {
+          "eng_name": "Error",
+          "vi_name": "Lỗi",
+          "index": 0
+        }
+      ],
+      "pathway_name": "Error (Lỗi)"
+    },
+    {
+      "list":[
+        {
+          "eng_name": "Spectator",
+          "vi_name": "Khán Giả",
+          "index": 9
+        },
+        {
+          "eng_name": "Telepathist",
+          "vi_name": "Người Đọc Tâm Trí",
+          "index": 8
+        },
+        {
+          "eng_name": "Psychiatrist",
+          "vi_name": "Bác Sĩ Tâm Lý",
+          "index": 7
+        },
+        {
+          "eng_name": "Hypnotist",
+          "vi_name": "Nhà Thôi Miên",
+          "index": 6
+        },
+        {
+          "eng_name": "Dreamwalker",
+          "vi_name": "Kẻ Đi Trong Mơ",
+          "index": 5
+        },
+        {
+          "eng_name": "Manipulator",
+          "vi_name": "Kẻ Thao Túng",
+          "index": 4
+        },
+        {
+          "eng_name": "Dream Weaver",
+          "vi_name": "Kẻ Dệt Mộng",
+          "index": 3
+        },
+        {
+          "eng_name": "Discerner",
+          "vi_name": "Kẻ Thấu Thị",
+          "index": 2
+        },
+        {
+          "eng_name": "Author",
+          "vi_name": "Tác Giả",
+          "index": 1
+        },
+        {
+          "eng_name": "Visionary",
+          "vi_name": "Không Tưởng",
+          "index": 0
+        }
+      ],
+      "pathway_name": "Visionary (Không Tưởng)"
+    },
+    {
+      "list":[
+        {
+          "eng_name": "Secrets Suppliant",
+          "vi_name": "Kẻ Cầu Xin Bí Mật",
+          "index": 9
+        },
+        {
+          "eng_name": "Listener",
+          "vi_name": "Người Lắng Nghe",
+          "index": 8
+        },
+        {
+          "eng_name": "Hidden Mage",
+          "vi_name": "Pháp Sư Ẩn Danh",
+          "index": 7
+        },
+        {
+          "eng_name": "Rose Bishop",
+          "vi_name": "Giám Mục Hoa Hồng",
+          "index": 6
+        },
+        {
+          "eng_name": "Shepherd",
+          "vi_name": "Kẻ Chăn Cừu",
+          "index": 5
+        },
+        {
+          "eng_name": "Black Knight",
+          "vi_name": "Kỵ Sĩ Đen",
+          "index": 4
+        },
+        {
+          "eng_name": "Trinity Templar",
+          "vi_name": "Kỵ Sĩ Ba Ngôi",
+          "index": 3
+        },
+        {
+          "eng_name": "Profane Presbyter",
+          "vi_name": "Trưởng Lão Tà Đạo",
+          "index": 2
+        },
+        {
+          "eng_name": "Dark Angel",
+          "vi_name": "Thiên Thần Bóng Tối",
+          "index": 1
+        },
+        {
+          "eng_name": "Hanged Man",
+          "vi_name": "Người Treo Ngược",
+          "index": 0
+        }
+      ],
+      "pathway_name": "Hanged Man (Người Treo Ngược)"
+    },
+    {
+      "list":[
+        {
+          "eng_name": "Bard",
+          "vi_name": "Người Ngâm Khúc",
+          "index": 9
+        },
+        {
+          "eng_name": "Light Supplicant",
+          "vi_name": "Kẻ Cầu Xin Ánh Sáng",
+          "index": 8
+        },
+        {
+          "eng_name": "Solar High Priest",
+          "vi_name": "Tư Tế Mặt Trời",
+          "index": 7
+        },
+        {
+          "eng_name": "Notary",
+          "vi_name": "Công Chứng Viên",
+          "index": 6
+        },
+        {
+          "eng_name": "Priest of Light",
+          "vi_name": "Tu Sĩ Ánh Sáng",
+          "index": 5
+        },
+        {
+          "eng_name": "Unshadowed",
+          "vi_name": "Kẻ Vô Ảnh",
+          "index": 4
+        },
+        {
+          "eng_name": "Justice Mentor",
+          "vi_name": "Đạo Sư Công Lý",
+          "index": 3
+        },
+        {
+          "eng_name": "Lightseeker",
+          "vi_name": "Kẻ Tìm Ánh Sáng",
+          "index": 2
+        },
+        {
+          "eng_name": "White Angel",
+          "vi_name": "Thiên Thần Trắng",
+          "index": 1
+        },
+        {
+          "eng_name": "Sun",
+          "vi_name": "Mặt Trời",
+          "index": 0
+        }
+      ],
+      "pathway_name": "Sun (Mặt Trời)"
+    },
+    {
+      "list":[
+        {
+          "eng_name": "Sailor",
+          "vi_name": "Thủy Thủ",
+          "index": 9
+        },
+        {
+          "eng_name": "Folk of Rage",
+          "vi_name": "Dân Cuồng Nộ",
+          "index": 8
+        },
+        {
+          "eng_name": "Seafarer",
+          "vi_name": "Nhà Hàng Hải",
+          "index": 7
+        },
+        {
+          "eng_name": "Wind-blessed",
+          "vi_name": "Kẻ Được Gió Ban Phước",
+          "index": 6
+        },
+        {
+          "eng_name": "Ocean Songster",
+          "vi_name": "Ca Sĩ Đại Dương",
+          "index": 5
+        },
+        {
+          "eng_name": "Cataclysmic Interrer",
+          "vi_name": "Kẻ Gây Thảm Họa",
+          "index": 4
+        },
+        {
+          "eng_name": "Sea King",
+          "vi_name": "Vua Biển",
+          "index": 3
+        },
+        {
+          "eng_name": "Calamity",
+          "vi_name": "Tai Ương",
+          "index": 2
+        },
+        {
+          "eng_name": "Thunder God",
+          "vi_name": "Thần Sấm",
+          "index": 1
+        },
+        {
+          "eng_name": "Tyrant",
+          "vi_name": "Bạo Chúa",
+          "index": 0
+        }
+      ],
+      "pathway_name": "Tyrant (Bạo Chúa)"
+    },
+    {
+      "list":[
+        {
+          "eng_name": "Reader",
+          "vi_name": "Người Đọc",
+          "index": 9
+        },
+        {
+          "eng_name": "Student of Ratiocination",
+          "vi_name": "Học Sinh Suy Luận",
+          "index": 8
+        },
+        {
+          "eng_name": "Detective",
+          "vi_name": "Thám Tử",
+          "index": 7
+        },
+        {
+          "eng_name": "Polymath",
+          "vi_name": "Học Giả Đa Tài",
+          "index": 6
+        },
+        {
+          "eng_name": "Mysticism Magister",
+          "vi_name": "Đại Sư Bí Thuật",
+          "index": 5
+        },
+        {
+          "eng_name": "Prophet",
+          "vi_name": "Nhà Tiên Tri",
+          "index": 4
+        },
+        {
+          "eng_name": "Cognizer",
+          "vi_name": "Người Thấu Hiểu",
+          "index": 3
+        },
+        {
+          "eng_name": "Wisdom Angel",
+          "vi_name": "Thiên Thần Trí Tuệ",
+          "index": 2
+        },
+        {
+          "eng_name": "Omniscient Eye",
+          "vi_name": "Con Mắt Toàn Tri",
+          "index": 1
+        },
+        {
+          "eng_name": "White Tower",
+          "vi_name": "Tháp Trắng",
+          "index": 0
+        }
+      ],
+      "pathway_name": "White Tower (Tháp Trắng)"
+    },
+    {
+      "list":[
+        {
+          "eng_name": "Sleepless",
+          "vi_name": "Kẻ Không Ngủ",
+          "index": 9
+        },
+        {
+          "eng_name": "Midnight Poet",
+          "vi_name": "Thi Nhân Nửa Đêm",
+          "index": 8
+        },
+        {
+          "eng_name": "Nightmare",
+          "vi_name": "Ác Mộng",
+          "index": 7
+        },
+        {
+          "eng_name": "Soul Assurer",
+          "vi_name": "Người An Ủi Linh Hồn",
+          "index": 6
+        },
+        {
+          "eng_name": "Spirit Warlock",
+          "vi_name": "Pháp Sư Chiêu Hồn",
+          "index": 5
+        },
+        {
+          "eng_name": "Nightwatcher",
+          "vi_name": "Người Gác Đêm",
+          "index": 4
+        },
+        {
+          "eng_name": "Horror Bishop",
+          "vi_name": "Giám Mục Kinh Hoàng",
+          "index": 3
+        },
+        {
+          "eng_name": "Servant of Concealment",
+          "vi_name": "Tôi Tớ Của Sự Che Giấu",
+          "index": 2
+        },
+        {
+          "eng_name": "Knight of Misfortune",
+          "vi_name": "Kỵ Sĩ Vận Rủi",
+          "index": 1
+        },
+        {
+          "eng_name": "Darkness",
+          "vi_name": "Bóng Tối",
+          "index": 0
+        }
+      ],
+      "pathway_name": "Darkness (Bóng Tối)"
+    },
+    {
+      "list":[
+        {
+          "eng_name": "Corpse Collector",
+          "vi_name": "Kẻ Nhặt Xác",
+          "index": 9
+        },
+        {
+          "eng_name": "Gravedigger",
+          "vi_name": "Người Đào Mộ",
+          "index": 8
+        },
+        {
+          "eng_name": "Spirit Medium",
+          "vi_name": "Kẻ Thông Linh",
+          "index": 7
+        },
+        {
+          "eng_name": "Spirit Guide",
+          "vi_name": "Người Dẫn Hồn",
+          "index": 6
+        },
+        {
+          "eng_name": "Gatekeeper",
+          "vi_name": "Người Gác Cổng",
+          "index": 5
+        },
+        {
+          "eng_name": "Undying",
+          "vi_name": "Kẻ Bất Tử",
+          "index": 4
+        },
+        {
+          "eng_name": "Ferryman",
+          "vi_name": "Người Lái Đò",
+          "index": 3
+        },
+        {
+          "eng_name": "Death Consul",
+          "vi_name": "Chấp Chính Quan Cõi Chết",
+          "index": 2
+        },
+        {
+          "eng_name": "Pale Emperor",
+          "vi_name": "Hoàng Đế Tái Nhợt",
+          "index": 1
+        },
+        {
+          "eng_name": "Death",
+          "vi_name": "Tử Thần",
+          "index": 0
+        }
+      ],
+      "pathway_name": "Death (Tử Thần)"
+    },
+    {
+      "list":[
+        {
+          "eng_name": "Warrior",
+          "vi_name": "Chiến Binh",
+          "index": 9
+        },
+        {
+          "eng_name": "Gladiator",
+          "vi_name": "Võ Sĩ Giác Đấu",
+          "index": 8
+        },
+        {
+          "eng_name": "Weapon Master",
+          "vi_name": "Bậc Thầy Vũ Khí",
+          "index": 7
+        },
+        {
+          "eng_name": "Dawn Paladin",
+          "vi_name": "Kỵ Sĩ Hừng Đông",
+          "index": 6
+        },
+        {
+          "eng_name": "Guardian",
+          "vi_name": "Người Bảo Vệ",
+          "index": 5
+        },
+        {
+          "eng_name": "Demon Hunter",
+          "vi_name": "Thợ Săn Quỷ",
+          "index": 4
+        },
+        {
+          "eng_name": "Silver Knight",
+          "vi_name": "Kỵ Sĩ Bạc",
+          "index": 3
+        },
+        {
+          "eng_name": "Glory",
+          "vi_name": "Vinh Quang",
+          "index": 2
+        },
+        {
+          "eng_name": "Hand of God",
+          "vi_name": "Bàn Tay Thần Linh",
+          "index": 1
+        },
+        {
+          "eng_name": "Twilight Giant",
+          "vi_name": "Khổng Lồ Hoàng Hôn",
+          "index": 0
+        }
+      ],
+      "pathway_name": "Twilight Giant (Khổng Lồ Hoàng Hôn)"
+    },
+    {
+      "list":[
+        {
+          "eng_name": "Hunter",
+          "vi_name": "Thợ Săn",
+          "index": 9
+        },
+        {
+          "eng_name": "Provoker",
+          "vi_name": "Kẻ Khiêu Khích",
+          "index": 8
+        },
+        {
+          "eng_name": "Pyromaniac",
+          "vi_name": "Kẻ Phóng Hỏa",
+          "index": 7
+        },
+        {
+          "eng_name": "Conspirer",
+          "vi_name": "Kẻ Âm Mưu",
+          "index": 6
+        },
+        {
+          "eng_name": "Reaper",
+          "vi_name": "Tử Thần Gặt Mạng",
+          "index": 5
+        },
+        {
+          "eng_name": "Iron-blooded Knight",
+          "vi_name": "Kỵ Sĩ Máu Sắt",
+          "index": 4
+        },
+        {
+          "eng_name": "War Bishop",
+          "vi_name": "Giám Mục Chiến Tranh",
+          "index": 3
+        },
+        {
+          "eng_name": "Weather Warlock",
+          "vi_name": "Pháp Sư Thời Tiết",
+          "index": 2
+        },
+        {
+          "eng_name": "Conqueror",
+          "vi_name": "Kẻ Chinh Phục",
+          "index": 1
+        },
+        {
+          "eng_name": "Red Priest",
+          "vi_name": "Hồng Tế Tư",
+          "index": 0
+        }
+      ],
+      "pathway_name": "Red Priest (Hồng Tế Tư)"
+    },
+    {
+      "list":[
+        {
+          "eng_name": "Assassin",
+          "vi_name": "Sát Thủ",
+          "index": 9
+        },
+        {
+          "eng_name": "Instigator",
+          "vi_name": "Kẻ Xúi Giục",
+          "index": 8
+        },
+        {
+          "eng_name": "Witch",
+          "vi_name": "Phù Thủy",
+          "index": 7
+        },
+        {
+          "eng_name": "Pleasure",
+          "vi_name": "Khoái Lạc",
+          "index": 6
+        },
+        {
+          "eng_name": "Affliction",
+          "vi_name": "Bệnh Tật",
+          "index": 5
+        },
+        {
+          "eng_name": "Despair",
+          "vi_name": "Tuyệt Vọng",
+          "index": 4
+        },
+        {
+          "eng_name": "Unaging",
+          "vi_name": "Kẻ Bất Lão",
+          "index": 3
+        },
+        {
+          "eng_name": "Catastrophe",
+          "vi_name": "Tai Họa",
+          "index": 2
+        },
+        {
+          "eng_name": "Apocalypse",
+          "vi_name": "Tận Thế",
+          "index": 1
+        },
+        {
+          "eng_name": "Demoness",
+          "vi_name": "Ma Nữ",
+          "index": 0
+        }
+      ],
+      "pathway_name": "Demoness (Ma Nữ)"
+    },
+    {
+      "list":[
+        {
+          "eng_name": "Mystery Pryer",
+          "vi_name": "Kẻ Dòm Ngó Bí Ẩn",
+          "index": 9
+        },
+        {
+          "eng_name": "Melee Scholar",
+          "vi_name": "Học Giả Cận Chiến",
+          "index": 8
+        },
+        {
+          "eng_name": "Warlock",
+          "vi_name": "Vu Sư",
+          "index": 7
+        },
+        {
+          "eng_name": "Scroll Professor",
+          "vi_name": "Giáo Sư Cuộn Giấy",
+          "index": 6
+        },
+        {
+          "eng_name": "Constellation Master",
+          "vi_name": "Bậc Thầy Chòm Sao",
+          "index": 5
+        },
+        {
+          "eng_name": "Mysticologist",
+          "vi_name": "Nhà Thần Bí Học",
+          "index": 4
+        },
+        {
+          "eng_name": "Clairvoyant",
+          "vi_name": "Kẻ Thấu Thị",
+          "index": 3
+        },
+        {
+          "eng_name": "Sage",
+          "vi_name": "Nhà Hiền Triết",
+          "index": 2
+        },
+        {
+          "eng_name": "Knowledge Emperor",
+          "vi_name": "Hoàng Đế Tri Thức",
+          "index": 1
+        },
+        {
+          "eng_name": "Hermit",
+          "vi_name": "Ẩn Giả",
+          "index": 0
+        }
+      ],
+      "pathway_name": "Hermit (Ẩn Giả)"
+    },
+    {
+      "list":[
+        {
+          "eng_name": "Savant",
+          "vi_name": "Người Uyên Bác",
+          "index": 9
+        },
+        {
+          "eng_name": "Archaeologist",
+          "vi_name": "Nhà Khảo Cổ",
+          "index": 8
+        },
+        {
+          "eng_name": "Appraiser",
+          "vi_name": "Người Giám Định",
+          "index": 7
+        },
+        {
+          "eng_name": "Artisan",
+          "vi_name": "Thợ Thủ Công",
+          "index": 6
+        },
+        {
+          "eng_name": "Astronomer",
+          "vi_name": "Nhà Thiên Văn",
+          "index": 5
+        },
+        {
+          "eng_name": "Alchemist",
+          "vi_name": "Nhà Giả Kim",
+          "index": 4
+        },
+        {
+          "eng_name": "Arcane Scholar",
+          "vi_name": "Học Giả Huyền Bí",
+          "index": 3
+        },
+        {
+          "eng_name": "Knowledge Magister",
+          "vi_name": "Đại Sư Tri Thức",
+          "index": 2
+        },
+        {
+          "eng_name": "Illuminator",
+          "vi_name": "Kẻ Khai Sáng",
+          "index": 1
+        },
+        {
+          "eng_name": "Paragon",
+          "vi_name": "Hoàn Mỹ",
+          "index": 0
+        }
+      ],
+      "pathway_name": "Paragon (Hoàn Mỹ)"
+    },
+    {
+      "list":[
+        {
+          "eng_name": "Monster",
+          "vi_name": "Quái Vật",
+          "index": 9
+        },
+        {
+          "eng_name": "Robot",
+          "vi_name": "Người Máy",
+          "index": 8
+        },
+        {
+          "eng_name": "Lucky One",
+          "vi_name": "Kẻ May Mắn",
+          "index": 7
+        },
+        {
+          "eng_name": "Calamity Priest",
+          "vi_name": "Tu Sĩ Tai Ương",
+          "index": 6
+        },
+        {
+          "eng_name": "Winner",
+          "vi_name": "Người Chiến Thắng",
+          "index": 5
+        },
+        {
+          "eng_name": "Misfortune Mage",
+          "vi_name": "Pháp Sư Vận Rủi",
+          "index": 4
+        },
+        {
+          "eng_name": "Chaoswalker",
+          "vi_name": "Lữ Khách Hỗn Loạn",
+          "index": 3
+        },
+        {
+          "eng_name": "Soothsayer",
+          "vi_name": "Nhà Tiên Tri",
+          "index": 2
+        },
+        {
+          "eng_name": "Snake of Mercury",
+          "vi_name": "Rắn Thủy Ngân",
+          "index": 1
+        },
+        {
+          "eng_name": "Wheel of Fortune",
+          "vi_name": "Vòng Quay Vận Mệnh",
+          "index": 0
+        }
+      ],
+      "pathway_name": "Wheel of Fortune (Vòng Quay Vận Mệnh)"
+    },
+    {
+      "list":[
+        {
+          "eng_name": "Planter",
+          "vi_name": "Người Trồng Trọt",
+          "index": 9
+        },
+        {
+          "eng_name": "Doctor",
+          "vi_name": "Bác Sĩ",
+          "index": 8
+        },
+        {
+          "eng_name": "Harvest Priest",
+          "vi_name": "Tu Sĩ Mùa Màng",
+          "index": 7
+        },
+        {
+          "eng_name": "Biologist",
+          "vi_name": "Nhà Sinh Vật Học",
+          "index": 6
+        },
+        {
+          "eng_name": "Druid",
+          "vi_name": "Pháp Sư Tự Nhiên",
+          "index": 5
+        },
+        {
+          "eng_name": "Classical Alchemist",
+          "vi_name": "Nhà Giả Kim Cổ Điển",
+          "index": 4
+        },
+        {
+          "eng_name": "Pallbearer",
+          "vi_name": "Người Khiêng Quan Tài",
+          "index": 3
+        },
+        {
+          "eng_name": "Desolate Matriarch",
+          "vi_name": "Mẫu Thần Nơi Hoang Vu",
+          "index": 2
+        },
+        {
+          "eng_name": "Naturewalker",
+          "vi_name": "Lữ Khách Thiên Nhiên",
+          "index": 1
+        },
+        {
+          "eng_name": "Mother",
+          "vi_name": "Người Mẹ",
+          "index": 0
+        }
+      ],
+      "pathway_name": "Mother (Người Mẹ)"
+    },
+    {
+      "list":[
+        {
+          "eng_name": "Apothecary",
+          "vi_name": "Dược Sư",
+          "index": 9
+        },
+        {
+          "eng_name": "Beast Tamer",
+          "vi_name": "Kẻ Thuần Thú",
+          "index": 8
+        },
+        {
+          "eng_name": "Vampire",
+          "vi_name": "Ma Cà Rồng",
+          "index": 7
+        },
+        {
+          "eng_name": "Potions Professor",
+          "vi_name": "Giáo Sư Ma Dược",
+          "index": 6
+        },
+        {
+          "eng_name": "Scarlet Scholar",
+          "vi_name": "Học Giả Đỏ Thẫm",
+          "index": 5
+        },
+        {
+          "eng_name": "Shaman King",
+          "vi_name": "Vu Vương",
+          "index": 4
+        },
+        {
+          "eng_name": "High Summoner",
+          "vi_name": "Bậc Thầy Triệu Hồi",
+          "index": 3
+        },
+        {
+          "eng_name": "Life-Giver",
+          "vi_name": "Kẻ Ban Sự Sống",
+          "index": 2
+        },
+        {
+          "eng_name": "Beauty Goddess",
+          "vi_name": "Nữ Thần Sắc Đẹp",
+          "index": 1
+        },
+        {
+          "eng_name": "Moon",
+          "vi_name": "Mặt Trăng",
+          "index": 0
+        }
+      ],
+      "pathway_name": "Moon (Mặt Trăng)"
+    },
+    {
+      "list":[
+        {
+          "eng_name": "Criminal",
+          "vi_name": "Tội Phạm",
+          "index": 9
+        },
+        {
+          "eng_name": "Coldblooded",
+          "vi_name": "Kẻ Máu Lạnh",
+          "index": 8
+        },
+        {
+          "eng_name": "Serial Killer",
+          "vi_name": "Kẻ Giết Người Hàng Loạt",
+          "index": 7
+        },
+        {
+          "eng_name": "Devil",
+          "vi_name": "Ác Quỷ",
+          "index": 6
+        },
+        {
+          "eng_name": "Desire Apostle",
+          "vi_name": "Sứ Đồ Dục Vọng",
+          "index": 5
+        },
+        {
+          "eng_name": "Demon",
+          "vi_name": "Ác Ma",
+          "index": 4
+        },
+        {
+          "eng_name": "Blatherer",
+          "vi_name": "Kẻ Lải Nhải",
+          "index": 3
+        },
+        {
+          "eng_name": "Bloody Archduke",
+          "vi_name": "Đại Công Tước Máu",
+          "index": 2
+        },
+        {
+          "eng_name": "Filthy Monarch",
+          "vi_name": "Quân Vương Nhơ Bẩn",
+          "index": 1
+        },
+        {
+          "eng_name": "Abyss",
+          "vi_name": "Vực Thẳm",
+          "index": 0
+        }
+      ],
+      "pathway_name": "Abyss (Vực Thẳm)"
+    },
+    {
+      "list":[
+        {
+          "eng_name": "Prisoner",
+          "vi_name": "Tù Nhân",
+          "index": 9
+        },
+        {
+          "eng_name": "Lunatic",
+          "vi_name": "Kẻ Điên",
+          "index": 8
+        },
+        {
+          "eng_name": "Werewolf",
+          "vi_name": "Người Sói",
+          "index": 7
+        },
+        {
+          "eng_name": "Zombie",
+          "vi_name": "Xác Sống",
+          "index": 6
+        },
+        {
+          "eng_name": "Wraith",
+          "vi_name": "Oán Hồn",
+          "index": 5
+        },
+        {
+          "eng_name": "Puppet",
+          "vi_name": "Con Rối",
+          "index": 4
+        },
+        {
+          "eng_name": "Disciple of Silence",
+          "vi_name": "Tín Đồ Tĩnh Lặng",
+          "index": 3
+        },
+        {
+          "eng_name": "Ancient Bane",
+          "vi_name": "Mối Họa Thượng Cổ",
+          "index": 2
+        },
+        {
+          "eng_name": "Abomination",
+          "vi_name": "Sự Kinh Tởm",
+          "index": 1
+        },
+        {
+          "eng_name": "Chained",
+          "vi_name": "Bị Trói Buộc",
+          "index": 0
+        }
+      ],
+      "pathway_name": "Chained (Bị Trói Buộc)"
+    },
+    {
+      "list":[
+        {
+          "eng_name": "Lawyer",
+          "vi_name": "Luật Sư",
+          "index": 9
+        },
+        {
+          "eng_name": "Barbarian",
+          "vi_name": "Kẻ Man Rợ",
+          "index": 8
+        },
+        {
+          "eng_name": "Briber",
+          "vi_name": "Kẻ Hối Lộ",
+          "index": 7
+        },
+        {
+          "eng_name": "Baron of Corruption",
+          "vi_name": "Nam Tước Suy Đồi",
+          "index": 6
+        },
+        {
+          "eng_name": "Mentor of Disorder",
+          "vi_name": "Đạo Sư Hỗn Loạn",
+          "index": 5
+        },
+        {
+          "eng_name": "Earl of the Fallen",
+          "vi_name": "Bá Tước Sa Ngã",
+          "index": 4
+        },
+        {
+          "eng_name": "Frenzy Mage",
+          "vi_name": "Pháp Sư Cuồng Loạn",
+          "index": 3
+        },
+        {
+          "eng_name": "Duke of Entropy",
+          "vi_name": "Công Tước Hỗn Loạn",
+          "index": 2
+        },
+        {
+          "eng_name": "Prince of Abolition",
+          "vi_name": "Thân Vương Hủy Bỏ",
+          "index": 1
+        },
+        {
+          "eng_name": "Black Emperor",
+          "vi_name": "Hoàng Đế Đen",
+          "index": 0
+        }
+      ],
+      "pathway_name": "Black Emperor (Hoàng Đế Đen)"
+    },
+    {
+      "list":[
+        {
+          "eng_name": "Arbiter",
+          "vi_name": "Trọng Tài",
+          "index": 9
+        },
+        {
+          "eng_name": "Sheriff",
+          "vi_name": "Cảnh Sát Trưởng",
+          "index": 8
+        },
+        {
+          "eng_name": "Interrogator",
+          "vi_name": "Kẻ Thẩm Vấn",
+          "index": 7
+        },
+        {
+          "eng_name": "Judge",
+          "vi_name": "Thẩm Phán",
+          "index": 6
+        },
+        {
+          "eng_name": "Disciplinary Paladin",
+          "vi_name": "Kỵ Sĩ Kỷ Luật",
+          "index": 5
+        },
+        {
+          "eng_name": "Imperative Mage",
+          "vi_name": "Pháp Sư Mệnh Lệnh",
+          "index": 4
+        },
+        {
+          "eng_name": "Chaos Hunter",
+          "vi_name": "Thợ Săn Hỗn Loạn",
+          "index": 3
+        },
+        {
+          "eng_name": "Balancer",
+          "vi_name": "Người Cân Bằng",
+          "index": 2
+        },
+        {
+          "eng_name": "Hand of Order",
+          "vi_name": "Bàn Tay Trật Tự",
+          "index": 1
+        },
+        {
+          "eng_name": "Justiciar",
+          "vi_name": "Người Phán Quyết",
+          "index": 0
+        }
+      ],
+      "pathway_name": "Justiciar (Người Phán Quyết)"
+    }
+  ]
+}

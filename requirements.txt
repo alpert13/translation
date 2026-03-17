@@ -1,0 +1,22 @@
+# Web Server
+fastapi
+uvicorn
+pydantic
+
+# LLM Providers
+google-genai
+openai
+
+# Utils & Utilities
+python-dotenv
+tqdm
+
+# Parsing & Formatting
+regex
+ebooklib
+beautifulsoup4
+lxml
+
+# Fuzzy matching for glossary & pathways
+thefuzz
+Levenshtein

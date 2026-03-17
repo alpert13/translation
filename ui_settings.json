@@ -1,0 +1,14 @@
+{
+  "config_name": "COI - DeepSeek",
+  "auto_translate_enabled": false,
+  "auto_translate_ahead": 3,
+  "read_mode": "vi",
+  "font_family": "Microsoft Sans Serif",
+  "font_size": 18,
+  "text_margin": 100,
+  "row_height_percent": 160,
+  "bg_color": "#111111",
+  "text_color": "#EAEAEA",
+  "last_chapter_id": 163,
+  "last_scroll_value": 420
+}
