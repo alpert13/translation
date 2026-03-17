@@ -52,3 +52,4 @@ htmlcov/
 # Translation project specific
 translations/
 lotm/
+api_logs.txt
