@@ -1,131 +1,249 @@
 import os
-import uvicorn
-from fastapi import FastAPI, HTTPException, BackgroundTasks
+import time
+import uuid
+import json
+from typing import List, Optional, Dict
+from fastapi import FastAPI, BackgroundTasks, HTTPException
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
+import uvicorn
 
-# Import các thành phần từ hệ thống hiện tại
-from config import (
-    batch_config, 
-    sequential_config, 
-    deepseek_config, 
-    coi_config, 
-    coi_deepseek_config
-)
-from main import get_provider
-from translator import TranslatorCore
-import data
+# Import từ các file local của bạn
+from config import sequential_config, deepseek_config, coi_config, batch_config
+from data import load_chapters
+from glossary import GlossaryManager
+from pathway_detector import get_pathway_json_block
+from gemini import GeminiProvider
+from deepseek import DeepSeekProvider
+from make_book import create_epub_from_txt, extract_number
 
-app = FastAPI(
-    title="LOTM Translator API",
-    description="API Server cho hệ thống dịch thuật Lord of the Mysteries / Circle of Inevitability",
-    version="1.0.0"
-)
+# Fallback nếu thiếu file prompts.py
+try:
+    from prompts import build_prompt
+except ImportError:
+    def build_prompt(title, text, glossary, pathway):
+        return (f"Bạn là dịch giả chuyên nghiệp cho tiểu thuyết 'Lord of the Mysteries'.\n"
+                f"Tên chương: {title}\n"
+                f"Thuật ngữ (Glossary): {json.dumps(glossary, ensure_ascii=False)}\n"
+                f"Con đường (Pathway): \n{pathway}\n\n"
+                f"Dịch nội dung sau sang tiếng Việt:\n\n{text}")
 
-# === CÁC MODEL DỮ LIỆU ===
-class TranslateTextRequest(BaseModel):
-    title: str = "Unknown Title"
-    text: str
-    provider: str = "gemini"  # "gemini" hoặc "deepseek"
+app = FastAPI(title="LOTM Translation API", description="API server for novel translation system")
 
-class SystemRunRequest(BaseModel):
-    config_name: str = "sequential"  # "batch", "sequential", "deepseek", "coi", "coi_deepseek"
+# In-memory database để lưu trạng thái của các job dịch
+JOBS: Dict[str, dict] = {}
 
-# === HÀM HỖ TRỢ ===
-def run_system_background(config_name: str):
-    configs = {
-        "batch": batch_config,
-        "sequential": sequential_config,
-        "deepseek": deepseek_config,
-        "coi": coi_config,
-        "coi_deepseek": coi_deepseek_config
-    }
-    cfg = configs.get(config_name, sequential_config)
-    provider = get_provider(cfg)
-    translator = TranslatorCore(cfg, provider)
-    translator.run()
+# Dictionary để map tên config với biến config thực tế từ config.py
+CONFIG_MAP = {
+    "sequential_config": sequential_config,
+    "deepseek_config": deepseek_config,
+    "coi_config": coi_config,
+    "batch_config": batch_config
+}
 
-# === API ENDPOINTS ===
-@app.get("/")
-def read_root():
-    return {"status": "ok", "message": "LOTM Translator API Server is running."}
+# --- MODELS ---
+class TranslateRequest(BaseModel):
+    start_chapter: int
+    end_chapter: int
+    config_name: str = "sequential_config"
 
-@app.post("/api/translate/text")
-def translate_custom_text(req: TranslateTextRequest):
-    """Dịch một đoạn text/chương tùy chỉnh tự nhập vào."""
-    cfg = sequential_config.copy() if req.provider == "gemini" else deepseek_config.copy()
+# --- WORKER FUNCTIONS ---
+def translation_worker(job_id: str, to_translate: List[int], cfg: dict):
+    """Hàm chạy nền (background task) để dịch tuần tự các chương."""
     
-    try:
-        provider = get_provider(cfg)
-        translator = TranslatorCore(cfg, provider)
-        
-        # Tạo một chapter giả lập để đẩy vào prompt
-        chapter_mock = {
-            "chapter_id": 99999,
-            "title": req.title,
-            "text": req.text
-        }
-        
-        raw_translation = translator.translate_chapter_once(chapter_mock)
-        clean_translation = translator._extract_and_learn_terms(raw_translation)
-        
-        return {
-            "original_title": req.title,
-            "translated_text": clean_translation
-        }
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-@app.get("/api/translate/chapter/{chapter_id}")
-def translate_chapter_by_id(chapter_id: int, provider: str = "gemini"):
-    """Lấy chương từ file Pickle (text.pkl) và dịch on-the-fly."""
-    cfg = sequential_config.copy() if provider == "gemini" else deepseek_config.copy()
-    pickle_file = cfg.get("pickle_file", "./text.pkl")
+    JOBS[job_id]["status"] = "running"
+    output_dir = cfg.get("output_dir", "./translated_chapters")
+    os.makedirs(output_dir, exist_ok=True)
     
-    if not os.path.exists(pickle_file):
-         raise HTTPException(status_code=404, detail=f"Không tìm thấy file {pickle_file}")
-
-    try:
-        chapter = data.get_chapter_by_id(chapter_id, pickle_file)
-        if not chapter:
-            raise HTTPException(status_code=404, detail="Không tìm thấy chương này trong database (pickle).")
-            
-        llm_provider = get_provider(cfg)
-        translator = TranslatorCore(cfg, llm_provider)
-        
-        raw_translation = translator.translate_chapter_once(chapter)
-        clean_translation = translator._extract_and_learn_terms(raw_translation)
-        
-        return {
-            "chapter_id": chapter_id,
-            "title": chapter["title"],
-            "translated_text": clean_translation
-        }
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-@app.get("/api/chapters/{chapter_id}")
-def get_translated_chapter(chapter_id: int):
-    """Đọc file kết quả của một chương ĐÃ dịch xong."""
-    output_dir = sequential_config.get("output_dir", "./translated_chapters")
-    file_path = os.path.join(output_dir, f"Chapter_{chapter_id}.txt")
-    
-    if os.path.exists(file_path):
-        with open(file_path, "r", encoding="utf-8") as f:
-            content = f.read()
-        return {"chapter_id": chapter_id, "content": content}
+    # 1. Khởi tạo Provider & Tool
+    if cfg.get("provider") == "gemini":
+        provider = GeminiProvider(cfg)
     else:
-        raise HTTPException(status_code=404, detail="Chưa có bản dịch cho chương này.")
-
-@app.post("/api/system/start")
-def start_translation_system(req: SystemRunRequest, background_tasks: BackgroundTasks):
-    """Kích hoạt hệ thống dịch (Sequential/Batch) chạy ngầm."""
-    valid_configs = ["batch", "sequential", "deepseek", "coi", "coi_deepseek"]
-    if req.config_name not in valid_configs:
-        raise HTTPException(status_code=400, detail=f"Cấu hình phải là một trong: {valid_configs}")
+        provider = DeepSeekProvider(cfg)
         
-    background_tasks.add_task(run_system_background, req.config_name)
-    return {"message": f"Hệ thống dịch thuật đã được khởi chạy ngầm với cấu hình: {req.config_name}"}
+    glossary_manager = GlossaryManager(cfg.get("glossary_file", "./lotm_glossary.json"))
+    
+    # 2. Tải toàn bộ text từ file pickle
+    pickle_file = cfg.get("pickle_file", "./text.pkl")
+    try:
+        chapters = load_chapters(pickle_file)
+        chapter_dict = {ch['chapter_id']: ch for ch in chapters}
+    except Exception as e:
+        JOBS[job_id]["status"] = "failed"
+        JOBS[job_id]["errors"].append(f"Không thể load file {pickle_file}: {e}")
+        return
+
+    # 3. Tiến hành dịch từng chương
+    for cid in to_translate:
+        if JOBS[job_id]["status"] == "cancelled":
+            break
+            
+        JOBS[job_id]["current_chapter"] = cid
+        
+        if cid not in chapter_dict:
+            JOBS[job_id]["errors"].append(f"Không tìm thấy chương {cid} trong file dữ liệu.")
+            JOBS[job_id]["completed"] += 1
+            continue
+            
+        ch = chapter_dict[cid]
+        try:
+            # Thu thập context
+            rel_glossary = glossary_manager.get_relevant_glossary(ch['text'])
+            pw_block = get_pathway_json_block(ch['text'])
+            prompt = build_prompt(ch['title'], ch['text'], rel_glossary, pw_block)
+            
+            # Dịch
+            translated_text = provider.translate_chapter(prompt)
+            
+            # Lưu file txt
+            filename = f"chap_{cid:04d}.txt"
+            filepath = os.path.join(output_dir, filename)
+            
+            with open(filepath, 'w', encoding='utf-8') as f:
+                f.write(f"Chương {cid}: {ch['title']}\n\n")
+                f.write(translated_text)
+                
+            JOBS[job_id]["completed"] += 1
+            
+        except Exception as e:
+            JOBS[job_id]["errors"].append(f"Lỗi khi dịch chương {cid}: {e}")
+            JOBS[job_id]["completed"] += 1
+            
+        # Tôn trọng rate limit
+        time.sleep(cfg.get("sleep_time", 2))
+        
+    if JOBS[job_id]["status"] != "cancelled":
+        JOBS[job_id]["status"] = "completed"
+
+
+# --- API ENDPOINTS ---
+
+@app.post("/translate")
+def start_translation(req: TranslateRequest, background_tasks: BackgroundTasks):
+    """
+    1. API Dịch (Background): Nhận start_chapter và end_chapter.
+    Kiểm tra những chương nào đã được dịch và skip chúng.
+    Khởi tạo Job và trả về Job ID.
+    """
+    if req.config_name not in CONFIG_MAP:
+        raise HTTPException(status_code=400, detail=f"config_name phải thuộc {list(CONFIG_MAP.keys())}")
+        
+    cfg = CONFIG_MAP[req.config_name]
+    output_dir = cfg.get("output_dir", "./translated_chapters")
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # Phân loại chương nào cần dịch, chương nào đã có
+    already_translated = []
+    to_translate =[]
+    
+    for cid in range(req.start_chapter, req.end_chapter + 1):
+        filepath = os.path.join(output_dir, f"chap_{cid:04d}.txt")
+        if os.path.exists(filepath):
+            already_translated.append(cid)
+        else:
+            to_translate.append(cid)
+            
+    job_id = str(uuid.uuid4())
+    JOBS[job_id] = {
+        "job_id": job_id,
+        "status": "pending",
+        "total": len(to_translate),
+        "completed": 0,
+        "current_chapter": None,
+        "errors":[]
+    }
+    
+    if to_translate:
+        background_tasks.add_task(translation_worker, job_id, to_translate, cfg)
+        status_msg = "Job dịch đã được bắt đầu ở dưới nền."
+    else:
+        JOBS[job_id]["status"] = "completed"
+        status_msg = "Tất cả các chương yêu cầu đều đã được dịch từ trước."
+
+    return {
+        "message": status_msg,
+        "job_id": job_id,
+        "already_translated": already_translated,
+        "to_translate": to_translate
+    }
+
+
+@app.get("/track-progress/{job_id}")
+def track_progress(job_id: str):
+    """2. API Track Progress: Xem tiến độ của job dịch."""
+    if job_id not in JOBS:
+        raise HTTPException(status_code=404, detail="Không tìm thấy Job ID này.")
+    return JOBS[job_id]
+
+
+@app.get("/chapter/{chapter_id}")
+def get_chapter(chapter_id: int, config_name: str = "sequential_config"):
+    """3. API Lấy chương: Trả về nội dung txt của chương đã được dịch."""
+    if config_name not in CONFIG_MAP:
+        raise HTTPException(status_code=400, detail="config_name không hợp lệ.")
+        
+    cfg = CONFIG_MAP[config_name]
+    output_dir = cfg.get("output_dir", "./translated_chapters")
+    filepath = os.path.join(output_dir, f"chap_{chapter_id:04d}.txt")
+    
+    if not os.path.exists(filepath):
+        raise HTTPException(status_code=404, detail=f"Chương {chapter_id} chưa được dịch (Không tìm thấy file).")
+        
+    with open(filepath, 'r', encoding='utf-8') as f:
+        content = f.read()
+        
+    return {
+        "chapter_id": chapter_id,
+        "content": content
+    }
+
+
+@app.get("/get-book")
+def get_book(config_name: str = "sequential_config", book_title: str = "Quỷ Bí Chi Chủ"):
+    """
+    4. API Get Book: Gom toàn bộ các file TXT đã dịch lại, tạo EPUB và trả về dưới dạng file download.
+    """
+    if config_name not in CONFIG_MAP:
+        raise HTTPException(status_code=400, detail="config_name không hợp lệ.")
+        
+    cfg = CONFIG_MAP[config_name]
+    output_dir = cfg.get("output_dir", "./translated_chapters")
+    
+    if not os.path.exists(output_dir):
+        raise HTTPException(status_code=404, detail="Thư mục chứa chương dịch chưa được tạo.")
+        
+    # Lấy toàn bộ file txt và sắp xếp
+    txt_files =[
+        os.path.join(output_dir, f)
+        for f in os.listdir(output_dir)
+        if f.endswith(".txt")
+    ]
+    txt_files.sort(key=lambda x: extract_number(os.path.basename(x)))
+    
+    if not txt_files:
+        raise HTTPException(status_code=404, detail="Chưa có chương nào được dịch để tạo sách.")
+        
+    # Tạo tên file output ngẫu nhiên tránh đụng độ nếu nhiều request gọi cùng lúc
+    epub_filename = f"Book_{uuid.uuid4().hex[:8]}.epub"
+    epub_filepath = os.path.join(output_dir, epub_filename)
+    
+    try:
+        # Gọi hàm tạo EPUB từ make_book.py
+        create_epub_from_txt(
+            txt_files=txt_files,
+            output_file=epub_filepath,
+            book_title=book_title,
+            author="Mực Thích Lặn Nước"
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Lỗi khi tạo Epub: {e}")
+        
+    return FileResponse(
+        path=epub_filepath, 
+        media_type='application/epub+zip', 
+        filename=f"{book_title}.epub"
+    )
 
 if __name__ == "__main__":
-    # Khởi chạy server khi chạy trực tiếp file này
+    # Khởi chạy server tại http://localhost:8000
     uvicorn.run("server:app", host="0.0.0.0", port=8000, reload=True)
